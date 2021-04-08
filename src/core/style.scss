@@ -1,4 +1,8 @@
 
+body {
+  overflow-x: hidden;
+}
+
 @media (min-width: 600px) {
   body .gutenberg__editor {
     position: relative;
@@ -56,7 +60,7 @@
     }
 
     @media (min-width: 783px) {
-      top: 0;
+      top: 118px;
       left: 0;
     }
 
