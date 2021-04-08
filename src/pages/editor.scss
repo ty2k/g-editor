@@ -181,13 +181,13 @@ iframe {
 
     button {
       background: none;
-      // background-color: white;
       border: 0;
       border-radius: 0;
       cursor: pointer;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 14px;
       height: 44px;
+      padding: 0 3px;
 
       &:hover {
         background-color: #e6e6e6;

@@ -2,6 +2,8 @@ import React from 'react';
 import types from '../data/types';
 import { changeType } from '../globals/fake-data';
 
+import { Dropdown } from '../components/Dropdown';
+
 import './editor.scss';
 
 const { data, editPost, domReady } = window.wp;
@@ -123,11 +125,25 @@ class Editor extends React.Component {
               </fieldset>
             </div>
             <div className="button-group">
-              <button>Create</button>
-              <button>Lock</button>
+              {/* <button>Create</button> */}
+              <Dropdown
+                label="Create"
+                items={[
+                  { id: "create", label: "Create" },
+                  { id: "clone", label: "Clone" },
+                  { id: "external-link", label: "External Link" },
+                ]}
+              />
+              <Dropdown
+                label="Lock"
+              />
               <button>Move</button>
-              <button>Publish</button>
-              <button>Tag</button>
+              <Dropdown
+                label="Publish"
+              />
+              <Dropdown
+                label="Tag"
+              />
               <button>Delete</button>
             </div>
             <div className="ia-list">
