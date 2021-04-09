@@ -20,7 +20,16 @@ function RecursiveTreeView({ data }) {
   const classes = useStyles();
 
   const renderTree = (nodes) => (
-    <TreeItem key={nodes.id} nodeId={nodes.id} label={nodes.name}>
+    <TreeItem
+      key={nodes.id}
+      nodeId={nodes.id}
+      label={
+        <div style={ { display: 'flex', justifyContent: 'space-between' } }>
+          <span>{nodes.name}</span>
+          <input type="checkbox"></input>
+        </div>
+      }
+    >
       {Array.isArray(nodes.children) ? nodes.children.map((node) => renderTree(node)) : null}
     </TreeItem>
   );
