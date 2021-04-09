@@ -3,6 +3,7 @@ import types from '../data/types';
 import { changeType } from '../globals/fake-data';
 
 import { Dropdown } from '../components/Dropdown';
+import { RecursiveTreeView } from '../components/TreeView';
 
 import './editor.scss';
 
@@ -107,6 +108,8 @@ class Editor extends React.Component {
 
           {/* Left nav */}
           <div className="editor-left-frame">
+
+            {/* Search */}
             <div className="search">
               <fieldset>
                 <label htmlFor="search">Search by page name or URL</label>
@@ -116,6 +119,8 @@ class Editor extends React.Component {
                 </div>
               </fieldset>
             </div>
+
+            {/* List view */}
             <div className="list-view">
               <fieldset>
                 <label>List View</label>
@@ -124,8 +129,9 @@ class Editor extends React.Component {
                 </select>
               </fieldset>
             </div>
+
+            {/* Page action buttons */}
             <div className="button-group">
-              {/* <button>Create</button> */}
               <Dropdown
                 label="Create"
                 items={[
@@ -146,18 +152,59 @@ class Editor extends React.Component {
               />
               <button>Delete</button>
             </div>
-            <div className="ia-list">
-              <ul>
-                <li>Theme</li>
-                <ul>
-                  <li>Sub-theme</li>
-                  <li>Sub-theme</li>
-                  <li>Sub-theme</li>
-                  <ul>
-                    <li>Topic</li>
-                  </ul>
-                </ul>
-              </ul>
+
+            {/* IA tree view should take up remaining vertical space */}
+            <div className="ia-flex-container">
+              <RecursiveTreeView
+                data={
+                  {
+                    id: 'root',
+                    name: 'Theme',
+                    children: [
+                      {
+                        id: 'sub-theme-1',
+                        name: 'Sub-theme 1',
+                      },
+                      {
+                        id: 'sub-theme-2',
+                        name: 'Sub-theme 2',
+                        children: [
+                          {
+                            id: 'topic-1',
+                            name: 'Topic',
+                          },
+                        ],
+                      },
+                      {
+                        id: 'sub-theme-3',
+                        name: 'Sub-theme 3',
+                        children: [
+                          {
+                            id: 'topic-1',
+                            name: 'Topic 2',
+                            children: [
+                              {
+                                id: 'topic-2a',
+                                name: 'Topic 2a',
+                                children: [
+                                  {
+                                    id: 'topic-2a1',
+                                    name: 'Topic 2a1',
+                                  },
+                                  {
+                                    id: 'topic-2a2',
+                                    name: 'Topic 2a2',
+                                  },
+                                ],
+                              },
+                            ],
+                          },
+                        ],
+                      },
+                    ],
+                  }
+                }
+              />
             </div>
           </div>
 

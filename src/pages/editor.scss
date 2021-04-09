@@ -159,6 +159,7 @@ iframe {
         display: block;
         font-family: Arial, Helvetica, sans-serif;
         font-size: 13px;
+        margin: 0 0 8px 0;
       }
 
       select {
@@ -195,14 +196,12 @@ iframe {
     }
   }
 
-  div.ia-list {
+  div.ia-flex-container {
+    display: flex;
+    flex-direction: column;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 18px;
-
-    :hover {
-      background-color: #e6e6e6;
-      cursor: pointer;
-    }
+    height: calc(100vh - 327px);
   }
 }
 
